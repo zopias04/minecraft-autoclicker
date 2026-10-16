@@ -71,7 +71,7 @@ public class AutoClickerMod implements ClientModInitializer {
 		if (!ClickerConfig.enabled) return;
 		if (mc.player == null || mc.level == null) return;
 		   if (mc.gui.screen() != null) return;
-		if (!mc.isWindowActive()) return;
+		
 
 		long now = System.nanoTime() / 1_000_000L;
 		if (now < nextClickAtMs) return;
