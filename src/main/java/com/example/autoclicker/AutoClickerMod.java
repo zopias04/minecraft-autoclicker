@@ -61,7 +61,7 @@ public class AutoClickerMod implements ClientModInitializer {
 			ClickerConfig.enabled = !ClickerConfig.enabled;
 			nextClickAtMs = 0;
 			if (mc.player != null) {
-				mc.player.displayClientMessage(Component.literal(
+				   mc.gui.hud.setOverlayMessage(Component.literal(
 					"Autoclicker " + (ClickerConfig.enabled ? "ON" : "OFF")), true);
 			}
 		}
@@ -70,7 +70,7 @@ public class AutoClickerMod implements ClientModInitializer {
 		// Extra guard: do nothing unless the game window is focused and no menu is open.
 		if (!ClickerConfig.enabled) return;
 		if (mc.player == null || mc.level == null) return;
-		if (mc.screen != null) return;
+		   if (mc.gui.screen() != null) return;
 		if (!mc.isWindowActive()) return;
 
 		long now = System.nanoTime() / 1_000_000L;
